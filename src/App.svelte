@@ -35,26 +35,29 @@
                 </div>
             </div>
         </header>
+
+        <div class="content-card">
+        </div>
     </div>
 </main>
 
 <style lang="scss">
   main {
     width: 100vw;
-    height: 100vh;
     background-size: cover;
-    background: hsla(0, 0%, 0%, 0.45) url("/assets/background.jpg") no-repeat top;
     background-size: cover;
     background-blend-mode: darken;
+    background: hsla(0, 0%, 0%, 0.45) url("/assets/background.jpg") no-repeat fixed top;
   }
 
   .content {
     margin: auto;
-    height: 100vh;
+    overflow: hidden;
 
     width: 55vw;
     min-width: 768px;
-    background: hsla(0, 39%, 37%, 0.52);
+    background: inherit;
+    background-blend-mode: inherit;
 
     @media (max-width: 768px) {
       width: 100vw;
@@ -106,31 +109,62 @@
     $margin: 1.5em;
     top: $margin;
     margin-top: -$margin * 0.5;
-  }
 
-  .nav-list {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-
-    padding: 0;
-
-    .nav-item {
+    .nav-list {
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-around;
 
-      color: hsla(0, 0%, 100%, 0.8);
-      font-size: 1em;
+      padding: 0;
 
-      a {
+      .nav-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
         color: hsla(0, 0%, 100%, 0.8);
-        text-decoration: none;
+        font-size: 1em;
 
-        &:hover {
-          color: hsl(237, 42%, 61%);
+        a {
+          color: hsla(0, 0%, 100%, 0.8);
+          text-decoration: none;
+
+          &:hover {
+            color: hsl(237, 42%, 61%);
+          }
         }
       }
     }
+  }
+
+  .content-card {
+    width: 40em;
+    height: 80em;
+    background: inherit;
+    background-blend-mode: inherit;
+
+
+    margin: 3em auto;
+    box-shadow: 0 0.5em 1em hsla(0, 0%, 0%, 0.5);
+
+    overflow: hidden;
+
+    position: relative;
+  }
+
+  .content-card:before {
+    content: "";
+    display: block;
+    position: absolute;
+    background: inherit;
+    background-blend-mode: inherit;
+
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-shadow: inset 0 2000px hsla(273, 100%, 83%, 0.11);
+    filter: blur(1em);
+    margin: -5em;
   }
 </style>
